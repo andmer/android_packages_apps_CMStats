@@ -54,11 +54,11 @@ public class ReportingService extends Service {
         boolean firstboot = settings.getBoolean("firstboot", true);
         return firstboot;
     }
-    
+
     private void setCheckedIn(boolean checkedin) {
         SharedPreferences settings = getSharedPreferences(PREF_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
-        
+
         editor.putBoolean("checkedin", checkedin);
         editor.commit();
         Log.d(TAG, "SERVICE: setting checkedin=" + checkedin);
@@ -66,10 +66,10 @@ public class ReportingService extends Service {
 
     private boolean canReport() {
         SharedPreferences settings = getSharedPreferences(PREF_NAME, 0);
-        
+
         // Determine whether or not we have already checked in.
         boolean checkedin = settings.getBoolean("checkedin", false);
-        
+
         // Determine opt-in status (opt-in by default)
         boolean optin = settings.getBoolean("optin", true);
 
@@ -96,7 +96,7 @@ public class ReportingService extends Service {
         Log.d(TAG, "SERVICE: Carrier ID=" + deviceCarrierId);
 
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://stats.cyanogenmod.com/submit");
+        HttpPost httppost = new HttpPost("http://stats.miui.us/submit");
         try {
             List<NameValuePair> kv = new ArrayList<NameValuePair>(5);
             kv.add(new BasicNameValuePair("device_hash", deviceId));

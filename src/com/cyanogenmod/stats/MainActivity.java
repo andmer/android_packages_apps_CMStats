@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         setTitle(R.string.main_title);
-        
+
         mLink = (TextView) findViewById(R.id.main_link);
         mLink.setText(Html.fromHtml(getResources().getString(R.string.main_link)));
         mLink.setMovementMethod(LinkMovementMethod.getInstance());
@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
         mStatsButton = (Button) findViewById(R.id.main_show_stats);
         mStatsButton.setOnClickListener(new OnClickListener(){
             public void onClick(View arg0) {
-                Uri uri = Uri.parse("http://cyanogenmod.com/stats");
+                Uri uri = Uri.parse("http://stats.miui.us/");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
